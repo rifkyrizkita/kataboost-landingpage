@@ -49,7 +49,7 @@ const HowItWorks = () => {
               
               {index < steps.length - 1 && (
                 <div className="hidden md:flex items-center justify-center mt-8">
-                  <ArrowRight className="h-6 w-6 text-primary" />
+                  {/* <ArrowRight className="h-6 w-6 text-primary" /> */}
                 </div>
               )}
             </div>

@@ -3,8 +3,8 @@ import { ArrowRight, Play } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center hero-gradient px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto text-center animate-fade-in">
+    <section className="min-h-screen flex items-center justify-center hero-gradient px-4 sm:px-6 lg:px-8 pt-32">
+      <div className="max-w-4xl mx-auto text-center animate-fade-in mt-8">
         {/* Main Heading */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text">
           KataBoost
@@ -25,16 +25,16 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary-hover text-primary-foreground px-8 py-6 text-lg font-semibold hover-lift shadow-glow"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-semibold hover-lift shadow-xl hover:shadow-2xl backdrop-blur-sm"
           >
             Request A Demo
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           
           <Button
-            variant="outline"
+            variant="glass"
             size="lg"
-            className="px-8 py-6 text-lg font-semibold hover-lift"
+            className="text-lg font-semibold hover-lift"
           >
             <Play className="mr-2 h-5 w-5" />
             See How It Works
