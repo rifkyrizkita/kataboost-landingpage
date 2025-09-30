@@ -45,7 +45,7 @@ const Header = () => {
                 <img 
                   src="/assets/logo/kataboost logo in black.png" 
                   alt="KataBoost" 
-                  className="h-28 w-auto" 
+                  className="h-7 w-auto" 
                 />
               </div>
               {/* Invisible spacer to maintain layout */}
