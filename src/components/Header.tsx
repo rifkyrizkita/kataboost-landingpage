@@ -16,13 +16,13 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "/" },
+    // { name: "Home", href: "/" },
     { name: "About", href: "#about" },
     { name: "Product", href: "#product" },
     { name: "Services", href: "#services" },
-    { name: "Solutions", href: "#solutions" },
+    // { name: "Solutions", href: "#solutions" },
     { name: "Results", href: "#results" },
-    { name: "Testimonials", href: "#testimonials" },
+    // { name: "Testimonials", href: "#testimonials" },
   ];
 
   return (
@@ -31,9 +31,9 @@ const Header = () => {
         <div 
           className={`
             backdrop-blur-xl bg-white/10 border border-white/20 
-            rounded-3xl shadow-2xl transition-all duration-500 ease-out
+            rounded-3xl shadow-md transition-all duration-500 ease-out
             ${isScrolled 
-              ? 'bg-white/90 border-white/30 shadow-xl' 
+              ? 'bg-white/90 border-white/30 shadow-sm' 
               : 'bg-white/5 border-white/10'
             }
           `}
@@ -72,18 +72,20 @@ const Header = () => {
 
             {/* Desktop Login Button */}
             <div className="hidden md:flex">
-              <Button 
-                variant="outline" 
-                className="
-                  backdrop-blur-sm bg-white/10 border-white/30 
-                  hover:bg-white/20 hover:border-white/40
-                  text-gray-800 hover:text-gray-900
-                  shadow-lg hover:shadow-xl
-                  transition-all duration-300
-                "
-              >
-                Login
-              </Button>
+              <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
+                <Button 
+                  variant="outline" 
+                  className="
+                    backdrop-blur-sm bg-white/10 border-white/30 
+                    hover:bg-white/20 hover:border-white/40
+                    text-gray-800 hover:text-gray-900
+                    shadow-lg hover:shadow-xl
+                    transition-all duration-300
+                  "
+                >
+                  Talk With Us
+                </Button>
+              </a>
             </div>
 
           {/* Mobile Menu Button */}
@@ -113,9 +115,11 @@ const Header = () => {
                     {item.name}
                   </a>
                 ))}
-                <Button variant="outline" className="mt-4 w-fit">
-                  Login
-                </Button>
+                <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="mt-4 w-fit">
+                    Talk With Us
+                  </Button>
+                </a>
               </nav>
             </div>
           )}

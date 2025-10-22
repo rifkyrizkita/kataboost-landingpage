@@ -20,7 +20,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <Card className="p-12 card-gradient border-0 shadow-xl max-w-2xl mx-auto animate-slide-up">
+        <Card className="p-12 card-gradient border-0 shadow-lg max-w-2xl mx-auto animate-slide-up">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-4 text-foreground">
               Beta Access
@@ -46,13 +46,15 @@ const Pricing = () => {
             ))}
           </div>
 
-          <Button 
-            size="lg" 
-            className="w-full bg-primary hover:bg-primary-hover text-primary-foreground py-6 text-lg font-semibold hover-lift shadow-glow"
-          >
-            Request Early Access
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
+            <Button 
+              size="lg" 
+              className="w-full bg-primary hover:bg-primary-hover text-primary-foreground py-6 text-lg font-semibold hover-lift shadow-glow"
+            >
+              Request Early Access
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
         </Card>
       </div>
     </section>

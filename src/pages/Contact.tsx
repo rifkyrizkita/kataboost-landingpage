@@ -158,9 +158,11 @@ const Contact = () => {
               <p className="text-muted-foreground mb-4">
                 Join our beta program and transform your ad campaigns with AI-powered optimization.
               </p>
-              <Button className="bg-primary hover:bg-primary-hover text-primary-foreground hover-lift">
-                Request Early Access
-              </Button>
+              <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-primary hover:bg-primary-hover text-primary-foreground hover-lift">
+                  Request Early Access
+                </Button>
+              </a>
             </div>
           </div>
         </div>

@@ -23,22 +23,24 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-semibold hover-lift shadow-xl hover:shadow-2xl backdrop-blur-sm"
-          >
-            Request A Demo
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg font-semibold hover-lift shadow-xl hover:shadow-2xl backdrop-blur-sm"
+            >
+              Request A Demo
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
           
-          <Button
+          {/* <Button
             variant="glass"
             size="lg"
             className="text-lg font-semibold hover-lift"
           >
             <Play className="mr-2 h-5 w-5" />
             See How It Works
-          </Button>
+          </Button> */}
         </div>
 
         {/* Scroll Indicator */}
