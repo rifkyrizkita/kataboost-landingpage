@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  boostkit-landing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: boostkit-landing
+    ports:
+      - "4173:4173"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    # Optional: Add volumes for hot-reloading during development
+    # volumes:
+    #   - .:/usr/src/app
+    #   - /usr/src/app/node_modules
+    networks:
+      - boostkit-network
+
+networks:
+  boostkit-network:
+    driver: bridge
