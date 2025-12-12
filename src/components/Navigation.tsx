@@ -1,13 +1,9 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Home, Sparkles, Route, DollarSign } from "lucide-react";
+import { Home, Sparkles, Route, DollarSign } from "lucide-react";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { Separator } from "@/components/ui/separator";
 
-const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+const Navigation = () => {
   const navItems = [
     { name: "Home", href: "#", icon: Home },
     { name: "Features", href: "#product", icon: Sparkles },
@@ -17,15 +13,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Logo Fixed Top Left */}
-      <div className="fixed top-6 left-6 lg:left-8 z-50">
-        <img 
-          src="/assets/logo/kataboost logo in black.png" 
-          alt="KataBoost" 
-          className="h-10 w-auto dark:invert transition-all"
-        />
-      </div>
-
       {/* Desktop Dock Navigation - Fixed Bottom Center */}
       <div className="hidden md:block fixed bottom-8 left-1/2 -translate-x-1/2 z-[9999]">
         <Dock iconSize={48} iconMagnification={64} iconDistance={150}>
@@ -107,4 +94,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navigation;
