@@ -86,14 +86,14 @@ const Pricing = () => {
         {/* Header */}
         <div className="text-center mb-20 animate-fade-in-up">
           <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 mb-6">
-            <span className="text-sm font-bold text-primary uppercase tracking-widest">Pricing</span>
+            <span className="text-sm font-bold text-black dark:text-primary uppercase tracking-widest">Pricing</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 dark:text-white mb-6">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black dark:text-white mb-6">
             Plans That
             <br />
-            <span className="text-primary">Scale With You</span>
+            <span className="text-black dark:text-primary">Scale With You</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-black/70 dark:text-white/70 max-w-3xl mx-auto">
             Choose the perfect plan for your ad spend. All plans include core features with increasing levels of support and customization.
           </p>
         </div>
@@ -116,16 +116,16 @@ const Pricing = () => {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-2">{tier.name}</h3>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide">Budget: {tier.budget}</div>
+                  <h3 className="text-2xl font-black text-black dark:text-white mb-2">{tier.name}</h3>
+                  <div className="text-sm text-black/70 dark:text-white/70 uppercase tracking-wide">Budget: {tier.budget}</div>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-black text-gray-900 dark:text-white">${tier.monthly}</span>
-                    <span className="text-gray-600 dark:text-gray-400">/month</span>
+                    <span className="text-4xl font-black text-black dark:text-white">${tier.monthly}</span>
+                    <span className="text-black/70 dark:text-white/70">/month</span>
                   </div>
-                  <div className="text-sm text-primary">
+                  <div className="text-sm text-black dark:text-primary">
                     ${tier.annual.toLocaleString()}/year • Save {Math.round(((tier.monthly * 12 - tier.annual) / (tier.monthly * 12)) * 100)}%
                   </div>
                 </div>
@@ -134,11 +134,11 @@ const Pricing = () => {
                   Get Started
                 </Button>
 
-                <div className="pt-6 border-t border-white/10 space-y-3">
+                  <div className="pt-6 border-t border-gray-200 dark:border-white/10 space-y-3">
                   {tier.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-300">{feature}</span>
+                      <Check className="w-5 h-5 text-black dark:text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-black dark:text-white">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -157,18 +157,18 @@ const Pricing = () => {
             >
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-2">{tier.name}</h3>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide">Budget: {tier.budget}</div>
+                  <h3 className="text-2xl font-black text-black dark:text-white mb-2">{tier.name}</h3>
+                  <div className="text-sm text-black/70 dark:text-white/70 uppercase tracking-wide">Budget: {tier.budget}</div>
                 </div>
 
                 {!tier.custom ? (
                   <>
                     <div className="space-y-2">
                       <div className="flex items-baseline gap-2">
-                        <span className="text-4xl font-black text-gray-900 dark:text-white">${tier.monthly}</span>
-                        <span className="text-gray-600 dark:text-gray-400">/month</span>
+                        <span className="text-4xl font-black text-black dark:text-white">${tier.monthly}</span>
+                        <span className="text-black/70 dark:text-white/70">/month</span>
                       </div>
-                      <div className="text-sm text-primary">
+                      <div className="text-sm text-black dark:text-primary">
                         ${tier.annual?.toLocaleString()}/year • Save {tier.annual && tier.monthly ? Math.round(((tier.monthly * 12 - tier.annual) / (tier.monthly * 12)) * 100) : 0}%
                       </div>
                     </div>
@@ -179,8 +179,8 @@ const Pricing = () => {
                 ) : (
                   <>
                     <div className="py-4">
-                      <div className="text-3xl font-black text-primary mb-2">Custom Pricing</div>
-                      <div className="text-sm text-gray-400">Tailored to your specific needs</div>
+                      <div className="text-3xl font-black text-black dark:text-primary mb-2">Custom Pricing</div>
+                      <div className="text-sm text-black/70 dark:text-white/70">Tailored to your specific needs</div>
                     </div>
                     <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-primary hover:bg-primary/90 text-black font-bold uppercase tracking-wide h-12 group-hover:scale-105 transition-transform">
@@ -190,11 +190,11 @@ const Pricing = () => {
                   </>
                 )}
 
-                <div className="pt-6 border-t border-white/10 space-y-3">
+                <div className="pt-6 border-t border-gray-200 dark:border-white/10 space-y-3">
                   {tier.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-300">{feature}</span>
+                      <Check className="w-5 h-5 text-black dark:text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-black dark:text-white">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -205,10 +205,10 @@ const Pricing = () => {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center animate-fade-in-up" style={{animationDelay: '600ms'}}>
-          <p className="text-gray-400 mb-4">All plans include 14-day free trial • No credit card required</p>
+          <p className="text-black/70 dark:text-white/70 mb-4">All plans include 14-day free trial • No credit card required</p>
           <div className="flex flex-wrap items-center justify-center gap-8">
-            <div className="text-sm text-gray-500">
-              <span className="text-white font-bold">Custom enterprise solutions</span> available for budgets over $500K
+            <div className="text-sm text-black/70 dark:text-white/70">
+              <span className="text-black dark:text-white font-bold">Custom enterprise solutions</span> available for budgets over $500K
             </div>
           </div>
         </div>

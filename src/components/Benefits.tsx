@@ -34,18 +34,18 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="product" className="py-32 px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black relative overflow-hidden transition-colors">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+    <section id="product" className="py-32 px-6 lg:px-8 bg-white dark:bg-black relative overflow-hidden transition-colors">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.03)_1.5px,transparent_1.5px),linear-gradient(to_bottom,rgba(0,0,0,0.03)_1.5px,transparent_1.5px)] dark:bg-[linear-gradient(to_right,rgba(222,241,4,0.04)_1.5px,transparent_1.5px),linear-gradient(to_bottom,rgba(222,241,4,0.04)_1.5px,transparent_1.5px)] bg-[size:40px_40px]"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-20">
-          <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-            <span className="text-sm font-bold text-primary uppercase tracking-wide">Features</span>
+          <div className="inline-block px-6 py-2 border-2 border-black/10 dark:border-white/10 bg-[#def104]/5 mb-6">
+            <span className="text-sm font-bold text-black dark:text-white uppercase tracking-widest">Features</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight text-gray-900 dark:text-white">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight text-black dark:text-white">
             Performance
             <br />
-            <span className="text-primary">unleashed</span>
+            <span className="text-black dark:text-[#def104]">unleashed</span>
           </h2>
         </div>
 
@@ -57,24 +57,24 @@ const Benefits = () => {
             <div 
               key={index}
               ref={refs[index] as any}
-              className={`group relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800/50 dark:to-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-2xl p-8 hover:border-primary/50 hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 overflow-hidden scroll-animate-fade-up delay-${(index + 1) * 100} ${visibles[index] ? 'visible' : ''}`}
+              className={`group relative bg-gradient-to-br from-white to-white/50 dark:from-white/5 dark:to-white/[0.02] backdrop-blur-sm border-2 border-black/10 dark:border-white/10 p-10 hover:border-[#def104] hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 overflow-hidden scroll-animate-fade-up delay-${(index + 1) * 100} ${visibles[index] ? 'visible' : ''} shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(222,241,4,0.25),0_4px_16px_rgba(0,0,0,0.1)]`}
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-500"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute -inset-1 bg-[#def104]/10 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#def104]/10 rounded-full blur-3xl group-hover:bg-[#def104]/20 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-[#def104]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="relative">
-                <div className="flex items-start justify-between mb-6">
-                  <div>
-                    <div className="text-5xl font-black text-gray-900 dark:text-white mb-1">{benefit.metric}</div>
-                    <div className="text-sm font-bold text-primary uppercase tracking-wide">{benefit.label}</div>
+                <div className="flex items-start justify-between mb-8">
+                  <div className="flex-1">
+                    <div className="text-6xl md:text-7xl font-black text-black dark:text-white mb-2 group-hover:text-[#def104] transition-colors drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)]">{benefit.metric}</div>
+                    <div className="text-xs font-black text-black/60 dark:text-white/60 uppercase tracking-[0.2em]">{benefit.label}</div>
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl md:text-3xl font-black text-black dark:text-white mb-4 transition-colors">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-base md:text-lg text-black/60 dark:text-white/60 leading-relaxed">
                   {benefit.description}
                 </p>
               </div>

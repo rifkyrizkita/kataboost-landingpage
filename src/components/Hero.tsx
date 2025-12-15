@@ -46,135 +46,131 @@ const Hero = () => {
 
       {/* Main Hero Section */}
       <section className={`relative min-h-screen flex items-center overflow-hidden bg-white dark:bg-black transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      {/* Animated background gradients */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[150px] animate-glow"></div>
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] animate-glow" style={{animationDelay: '1.5s'}}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] animate-pulse" style={{animationDuration: '4s'}}></div>
+      {/* Enhanced background effects */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-[#def104]/10 rounded-full blur-[140px] animate-float"></div>
+        <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-[#def104]/8 rounded-full blur-[120px] animate-float" style={{animationDelay: '3s', animationDuration: '8s'}}></div>
+        <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-[#def104]/5 rounded-full blur-[80px] animate-pulse" style={{animationDuration: '6s'}}></div>
       </div>
 
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
+      {/* Refined grid pattern with fade */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_45%,black,transparent)]"></div>
       
-      <div className={`relative z-10 w-full px-6 lg:px-8 py-20 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className={`relative z-10 w-full px-6 lg:px-8 py-32 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="max-w-7xl mx-auto">
-          {/* Main content - centered */}
-          <div className="text-center space-y-12 max-w-5xl mx-auto">
-
-            {/* Headline */}
-            <div className="space-y-6">
-              <h1 className="text-7xl md:text-9xl font-black tracking-tighter">
-                <div className="text-gray-900 dark:text-white animate-fade-in-up">
-                  Stop Planning.
-                </div>
-                <div className="mt-2 animate-fade-in-up delay-100">
-                  <span className="bg-gradient-to-r from-primary via-blue-400 to-purple-500 bg-clip-text text-transparent">
-                    Start Launching.
-                  </span>
-                </div>
-              </h1>
-              
-              <p className="text-2xl md:text-3xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto animate-fade-in-up delay-200 font-light">
-                AI-powered campaign builder for Meta & TikTok. <br className="hidden md:block" />
-                <span className="text-gray-900 dark:text-white font-semibold">15 minutes</span> from idea to live ads.
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300">
-              <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-primary hover:bg-primary/80 text-white h-16 px-10 text-lg font-bold uppercase tracking-wide group relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                  <span className="relative flex items-center gap-3">
-                    Get Free Access
-                    <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Button>
-              </a>
-              <Button size="lg" variant="outline" className="border-2 border-gray-300 dark:border-white/30 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 h-16 px-10 text-lg font-bold uppercase tracking-wide backdrop-blur-sm">
-                See How It Works
-              </Button>
-            </div>
-
-            {/* Stats bar */}
-            <div className="flex items-center justify-center gap-3 md:gap-16 pt-8 animate-fade-in-up delay-400">
-              <div className="text-center group cursor-default">
-                <div className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-1 group-hover:scale-110 transition-transform">15min</div>
-                <div className="text-xs md:text-sm text-gray-500 dark:text-gray-500 uppercase tracking-wide">Setup</div>
-              </div>
-
-              <div className="w-px h-12 md:h-16 bg-gray-300 dark:bg-white/20"></div>
-
-              <div className="text-center group cursor-default">
-                <div className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-1 group-hover:scale-110 transition-transform">2</div>
-                <div className="text-xs md:text-sm text-gray-500 dark:text-gray-500 uppercase tracking-wide">Platforms</div>
-              </div>
-
-              <div className="w-px h-12 md:h-16 bg-gray-300 dark:bg-white/20"></div>
-
-              <div className="text-center group cursor-default">
-                <div className="text-3xl md:text-4xl font-black text-primary mb-1 group-hover:scale-110 transition-transform">AI</div>
-                <div className="text-xs md:text-sm text-gray-500 uppercase tracking-wide">Powered</div>
+          
+          {/* Headline Section */}
+          <div className="space-y-8 mb-16 animate-fade-in-up">
+            <div className="inline-block relative">
+              <div className="absolute inset-0 bg-[#def104]/10 blur-xl"></div>
+              <div className="relative px-5 py-2.5 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-2 border-black/10 dark:border-white/10">
+                <span className="text-xs font-black text-black dark:text-white uppercase tracking-[0.3em]">AI-Powered Campaign Builder</span>
               </div>
             </div>
-
-            {/* Visual showcase */}
-            <div className="pt-16 animate-scale-in delay-500">
-              <div className="relative max-w-4xl mx-auto">
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-blue-500/20 to-transparent blur-3xl"></div>
-                
-                {/* Main visual */}
-                <div className="relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-900/90 dark:to-black/90 border border-gray-200 dark:border-white/10 backdrop-blur-xl p-8 md:p-12">
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {/* Card 1 */}
-                    <div className="bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 p-6 hover:border-primary/40 transition-all duration-300 group">
-                      <div className="text-primary text-xs uppercase tracking-widest mb-3 font-bold">Meta Ads</div>
-                      <div className="text-4xl font-black text-gray-900 dark:text-white mb-2 group-hover:scale-105 transition-transform">$12K</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">Monthly Spend</div>
-                      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-white/10">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-gray-600 dark:text-gray-500">ROAS</span>
-                          <span className="text-green-400 font-bold">4.2x</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Card 2 */}
-                    <div className="bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-500/20 p-6 hover:border-blue-500/40 transition-all duration-300 group">
-                      <div className="text-blue-500 dark:text-blue-400 text-xs uppercase tracking-widest mb-3 font-bold">TikTok Ads</div>
-                      <div className="text-4xl font-black text-gray-900 dark:text-white mb-2 group-hover:scale-105 transition-transform">$8K</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">Monthly Spend</div>
-                      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-white/10">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-gray-600 dark:text-gray-500">CTR</span>
-                          <span className="text-green-400 font-bold">6.8%</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Card 3 */}
-                    <div className="bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/20 p-6 hover:border-purple-500/40 transition-all duration-300 group">
-                      <div className="text-purple-600 dark:text-purple-400 text-xs uppercase tracking-widest mb-3 font-bold">AI Insights</div>
-                      <div className="text-4xl font-black text-gray-900 dark:text-white mb-2 group-hover:scale-105 transition-transform">87%</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">Accuracy</div>
-                      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-white/10">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-gray-600 dark:text-gray-500">Time Saved</span>
-                          <span className="text-green-400 font-bold">12hrs</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Decorative elements */}
-                <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/30 rounded-full blur-3xl animate-glow"></div>
-                <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl animate-glow" style={{animationDelay: '1s'}}></div>
-              </div>
-            </div>
-
+            
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-black dark:text-white leading-[0.95] drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_4px_20px_rgba(255,255,255,0.1)]">
+              Launch Winning
+              <br />
+              Ads <span className="relative inline-block">
+                <span className="relative z-10 text-black/30 dark:text-white/60">In 15 Minutes</span>
+                <div className="absolute bottom-2 left-0 right-0 h-4 bg-[#def104]/30 shadow-[0_4px_16px_rgba(222,241,4,0.3)]"></div>
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-black/70 dark:text-white/70 max-w-3xl leading-relaxed font-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
+              Build and optimize Meta & TikTok campaigns with AI that learns from your data. 
+              <span className="block mt-2 text-black dark:text-white font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.08)]">No planning. No guesswork. Just results.</span>
+            </p>
           </div>
+
+          {/* CTA Section */}
+          <div className="flex flex-wrap items-center gap-5 mb-24 animate-fade-in-up delay-100">
+            <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="relative bg-[#def104] hover:bg-[#def104] text-black h-16 px-12 text-base font-black uppercase tracking-wide group overflow-hidden shadow-[0_10px_40px_rgba(222,241,4,0.35),0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_50px_rgba(222,241,4,0.5),0_8px_20px_rgba(0,0,0,0.15)] hover:scale-105 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <span className="relative flex items-center gap-3">
+                  Start Free Trial
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                </span>
+              </Button>
+            </a>
+            <Button size="lg" variant="outline" className="border-2 border-black/20 dark:border-white/20 text-black dark:text-white hover:border-[#def104] hover:bg-[#def104]/5 h-16 px-12 text-base font-black uppercase tracking-wide hover:scale-105 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(222,241,4,0.2)]">
+              Watch Demo
+            </Button>
+            <div className="text-sm text-black/50 dark:text-white/50 ml-2">
+              <span className="block font-medium">✓ No credit card required</span>
+            </div>
+          </div>
+
+          {/* Stats Grid - Enhanced */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-16 animate-fade-in-up delay-200">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-[#def104]/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative p-8 bg-gradient-to-br from-white to-white/50 dark:from-white/5 dark:to-white/[0.02] backdrop-blur-sm border-2 border-black/10 dark:border-white/10 hover:border-[#def104] transition-all duration-500 group-hover:scale-105 shadow-[0_4px_20px_rgba(0,0,0,0.08)] group-hover:shadow-[0_12px_40px_rgba(222,241,4,0.25),0_4px_16px_rgba(0,0,0,0.1)]">
+                <div className="text-4xl md:text-5xl font-black text-black dark:text-white mb-3 group-hover:text-[#def104] transition-colors">4.2x</div>
+                <div className="text-xs text-black/60 dark:text-white/60 uppercase tracking-wider font-bold">Average ROAS</div>
+                <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/10">
+                  <div className="text-xs text-black/40 dark:text-white/40">Meta & TikTok</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative group">
+              <div className="absolute inset-0 bg-[#def104]/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative p-8 bg-gradient-to-br from-white to-white/50 dark:from-white/5 dark:to-white/[0.02] backdrop-blur-sm border-2 border-black/10 dark:border-white/10 hover:border-[#def104] transition-all duration-500 group-hover:scale-105 shadow-[0_4px_20px_rgba(0,0,0,0.08)] group-hover:shadow-[0_12px_40px_rgba(222,241,4,0.25),0_4px_16px_rgba(0,0,0,0.1)]">
+                <div className="text-4xl md:text-5xl font-black text-black dark:text-white mb-3 group-hover:text-[#def104] transition-colors">6.8%</div>
+                <div className="text-xs text-black/60 dark:text-white/60 uppercase tracking-wider font-bold">Average CTR</div>
+                <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/10">
+                  <div className="text-xs text-black/40 dark:text-white/40">Industry Leading</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative group">
+              <div className="absolute inset-0 bg-[#def104]/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative p-8 bg-gradient-to-br from-white to-white/50 dark:from-white/5 dark:to-white/[0.02] backdrop-blur-sm border-2 border-black/10 dark:border-white/10 hover:border-[#def104] transition-all duration-500 group-hover:scale-105 shadow-[0_4px_20px_rgba(0,0,0,0.08)] group-hover:shadow-[0_12px_40px_rgba(222,241,4,0.25),0_4px_16px_rgba(0,0,0,0.1)]">
+                <div className="text-4xl md:text-5xl font-black text-black dark:text-white mb-3 group-hover:text-[#def104] transition-colors">15min</div>
+                <div className="text-xs text-black/60 dark:text-white/60 uppercase tracking-wider font-bold">Setup Time</div>
+                <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/10">
+                  <div className="text-xs text-black/40 dark:text-white/40">Fully Automated</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative group">
+              <div className="absolute inset-0 bg-[#def104]/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative p-8 bg-gradient-to-br from-white to-white/50 dark:from-white/5 dark:to-white/[0.02] backdrop-blur-sm border-2 border-[#def104]/30 dark:border-[#def104]/20 hover:border-[#def104] transition-all duration-500 group-hover:scale-105 shadow-[0_6px_24px_rgba(222,241,4,0.2),0_4px_12px_rgba(0,0,0,0.08)] group-hover:shadow-[0_16px_48px_rgba(222,241,4,0.35),0_8px_20px_rgba(0,0,0,0.12)]">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="inline-block w-2 h-2 bg-[#def104] rounded-full animate-pulse"></span>
+                  <div className="text-4xl md:text-5xl font-black text-black dark:text-white group-hover:text-[#def104] transition-colors">24/7</div>
+                </div>
+                <div className="text-xs text-black/60 dark:text-white/60 uppercase tracking-wider font-bold">AI Optimization</div>
+                <div className="mt-3 pt-3 border-t border-black/10 dark:border-white/10">
+                  <div className="text-xs text-black/40 dark:text-white/40">Always Learning</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Platform Badges - Enhanced */}
+          <div className="flex flex-wrap items-center gap-6 animate-fade-in-up delay-300">
+            <div className="text-sm text-black/50 dark:text-white/50 font-medium uppercase tracking-wider">Integrated Platforms</div>
+            <div className="flex items-center gap-4">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-[#def104]/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative px-6 py-3 bg-white dark:bg-black border-2 border-black/10 dark:border-white/10 group-hover:border-[#def104] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_24px_rgba(222,241,4,0.25)]">
+                  <span className="text-sm font-black text-black dark:text-white uppercase tracking-wider">Meta Ads</span>
+                </div>
+              </div>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-[#def104]/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative px-6 py-3 bg-white dark:bg-black border-2 border-black/10 dark:border-white/10 group-hover:border-[#def104] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_24px_rgba(222,241,4,0.25)]">
+                  <span className="text-sm font-black text-black dark:text-white uppercase tracking-wider">TikTok Ads</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
