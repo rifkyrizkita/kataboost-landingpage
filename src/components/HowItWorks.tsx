@@ -36,7 +36,7 @@ const HowItWorks = () => {
           <div className="space-y-24">
             {/* Step 1 */}
             <div ref={step1Ref as any} className={`relative pl-20 md:pl-40 scroll-animate-fade-left ${step1Visible ? 'visible' : ''}`}>
-              <div className="absolute left-0 md:left-12 top-0 w-16 h-16 bg-[#def104] flex items-center justify-center shadow-[0_8px_24px_rgba(222,241,4,0.4)] hover:scale-110 hover:shadow-[0_12px_32px_rgba(222,241,4,0.5)] transition-all duration-300">
+              <div className="absolute left-0 md:left-12 top-0 w-16 h-16 rounded-2xl bg-[#def104] flex items-center justify-center shadow-[0_8px_24px_rgba(222,241,4,0.4)] hover:scale-110 hover:shadow-[0_12px_32px_rgba(222,241,4,0.5)] transition-all duration-300">
                 <span className="text-2xl font-black text-black">01</span>
               </div>
               
@@ -97,7 +97,7 @@ const HowItWorks = () => {
 
             {/* Step 2 */}
             <div ref={step2Ref as any} className={`relative pl-20 md:pl-40 scroll-animate-fade-left delay-300 ${step2Visible ? 'visible' : ''}`}>
-              <div className="absolute left-0 md:left-12 top-0 w-16 h-16 bg-[#def104] flex items-center justify-center shadow-[0_8px_24px_rgba(222,241,4,0.4)] hover:scale-110 hover:shadow-[0_12px_32px_rgba(222,241,4,0.5)] transition-all duration-300">
+              <div className="absolute left-0 md:left-12 top-0 w-16 h-16 rounded-2xl bg-[#def104] flex items-center justify-center shadow-[0_8px_24px_rgba(222,241,4,0.4)] hover:scale-110 hover:shadow-[0_12px_32px_rgba(222,241,4,0.5)] transition-all duration-300">
                 <span className="text-2xl font-black text-black">02</span>
               </div>
               
@@ -163,7 +163,7 @@ const HowItWorks = () => {
 
             {/* Step 3 */}
             <div ref={step3Ref as any} className={`relative pl-20 md:pl-40 scroll-animate-fade-left delay-600 ${step3Visible ? 'visible' : ''}`}>
-              <div className="absolute left-0 md:left-12 top-0 w-16 h-16 bg-[#def104] flex items-center justify-center shadow-[0_8px_24px_rgba(222,241,4,0.4)] hover:scale-110 hover:shadow-[0_12px_32px_rgba(222,241,4,0.5)] transition-all duration-300">
+              <div className="absolute left-0 md:left-12 top-0 w-16 h-16 rounded-2xl bg-[#def104] flex items-center justify-center shadow-[0_8px_24px_rgba(222,241,4,0.4)] hover:scale-110 hover:shadow-[0_12px_32px_rgba(222,241,4,0.5)] transition-all duration-300">
                 <span className="text-2xl font-black text-black">03</span>
               </div>
               
@@ -180,7 +180,7 @@ const HowItWorks = () => {
                   </p>
                   <div className="pt-4">
                     <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
-                      <button className="px-6 py-3 bg-[#def104] hover:bg-[#def104]/90 text-black font-bold uppercase tracking-wide transition-all flex items-center gap-2 group shadow-[0_6px_20px_rgba(222,241,4,0.3)] hover:shadow-[0_8px_28px_rgba(222,241,4,0.4)] hover:scale-105">
+                      <button className="px-6 py-3 bg-[#def104] hover:bg-[#def104]/90 text-black font-bold uppercase tracking-wide transition-all flex items-center gap-2 group shadow-[0_6px_20px_rgba(222,241,4,0.3)] hover:shadow-[0_8px_28px_rgba(222,241,4,0.4)] hover:scale-105 rounded-full">
                         <span>See it in action</span>
                         <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

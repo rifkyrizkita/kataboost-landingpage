@@ -72,7 +72,7 @@ const Hero = () => {
               Launch Winning
               <br />
               Ads <span className="relative inline-block">
-                <span className="relative z-10 text-black/30 dark:text-white/60">In 15 Minutes</span>
+                <span className="relative z-10 text-black/40 dark:text-white/70">In 15 Minutes</span>
                 <div className="absolute bottom-2 left-0 right-0 h-4 bg-[#def104]/30 shadow-[0_4px_16px_rgba(222,241,4,0.3)]"></div>
               </span>
             </h1>
@@ -94,7 +94,7 @@ const Hero = () => {
                 </span>
               </Button>
             </a>
-            <Button size="lg" variant="outline" className="border-2 border-black/20 dark:border-white/20 text-black dark:text-white hover:border-[#def104] hover:bg-[#def104]/5 h-16 px-12 text-base font-black uppercase tracking-wide hover:scale-105 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(222,241,4,0.2)]">
+            <Button size="lg" variant="outline" className="border-2 border-black/30 dark:border-white/30 bg-white/50 dark:bg-black/50 backdrop-blur-sm text-black dark:text-white hover:text-black dark:hover:text-white hover:border-[#def104] hover:bg-[#def104]/10 h-16 px-12 text-base font-black uppercase tracking-wide hover:scale-105 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(222,241,4,0.2)]">
               Watch Demo
             </Button>
             <div className="text-sm text-black/50 dark:text-white/50 ml-2">
@@ -158,13 +158,13 @@ const Hero = () => {
             <div className="flex items-center gap-4">
               <div className="relative group">
                 <div className="absolute inset-0 bg-[#def104]/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative px-6 py-3 bg-white dark:bg-black border-2 border-black/10 dark:border-white/10 group-hover:border-[#def104] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_24px_rgba(222,241,4,0.25)]">
+                <div className="relative px-6 py-3 bg-white dark:bg-[#def104]/10 backdrop-blur-sm border-2 border-black/10 dark:border-white/20 group-hover:border-[#def104] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_24px_rgba(222,241,4,0.25)]">
                   <span className="text-sm font-black text-black dark:text-white uppercase tracking-wider">Meta Ads</span>
                 </div>
               </div>
               <div className="relative group">
                 <div className="absolute inset-0 bg-[#def104]/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative px-6 py-3 bg-white dark:bg-black border-2 border-black/10 dark:border-white/10 group-hover:border-[#def104] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_24px_rgba(222,241,4,0.25)]">
+                <div className="relative px-6 py-3 bg-white dark:bg-[#def104]/10 backdrop-blur-sm border-2 border-black/10 dark:border-white/20 group-hover:border-[#def104] transition-all shadow-[0_4px_16px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_24px_rgba(222,241,4,0.25)]">
                   <span className="text-sm font-black text-black dark:text-white uppercase tracking-wider">TikTok Ads</span>
                 </div>
               </div>

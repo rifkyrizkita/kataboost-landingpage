@@ -36,7 +36,7 @@ const Header = () => {
                 className="flex items-center justify-center w-full h-full rounded-full bg-white dark:bg-gray-800 hover:bg-primary dark:hover:bg-primary transition-colors border border-gray-200 dark:border-white/10"
                 title={item.name}
               >
-                <item.icon className="w-5 h-5 text-black dark:text-white" />
+In 15 Minutes                <item.icon className="w-5 h-5 text-black dark:text-white" />
               </a>
             </DockIcon>
           ))}
