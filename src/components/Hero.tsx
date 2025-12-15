@@ -1,9 +1,51 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Target, TrendingUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [showSplash, setShowSplash] = useState(true);
+  const [showKata, setShowKata] = useState(false);
+  const [showBoost, setShowBoost] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Show "Kata" after 200ms
+    setTimeout(() => setShowKata(true), 200);
+    
+    // Show "Boost" after 900ms
+    setTimeout(() => setShowBoost(true), 900);
+    
+    // Hide splash screen after 2.8 seconds
+    const splashTimer = setTimeout(() => {
+      setShowSplash(false);
+      setTimeout(() => setIsVisible(true), 100);
+    }, 2800);
+
+    return () => clearTimeout(splashTimer);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white dark:bg-black transition-colors">
+    <>
+      {/* Splash Screen */}
+      <div 
+        className={`fixed inset-0 z-[99999] bg-black flex items-center justify-center transition-all duration-700 ${showSplash ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+      >
+        <div className="relative">
+          {/* Background glow */}
+          <div className={`absolute inset-0 blur-[120px] bg-primary/10 transition-opacity duration-1000 ${showBoost ? 'opacity-100' : 'opacity-0'}`}></div>
+          
+          <div className="relative">
+            <img 
+              src="/assets/logo/Kataboost_logo_white_corrected.png" 
+              alt="KataBoost" 
+              className={`w-[600px] md:w-[800px] lg:w-[1000px] h-auto transition-all duration-1000 ${showBoost ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Main Hero Section */}
+      <section className={`relative min-h-screen flex items-center overflow-hidden bg-white dark:bg-black transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Animated background gradients */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[150px] animate-glow"></div>
@@ -14,20 +56,10 @@ const Hero = () => {
       {/* Grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
       
-      <div className="relative z-10 w-full px-6 lg:px-8 py-20">
+      <div className={`relative z-10 w-full px-6 lg:px-8 py-20 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="max-w-7xl mx-auto">
           {/* Main content - centered */}
           <div className="text-center space-y-12 max-w-5xl mx-auto">
-            
-            {/* Badge */}
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-primary/20 to-blue-500/20 border border-primary/30 backdrop-blur-sm animate-slide-down">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-sm font-bold text-primary uppercase tracking-widest">Beta Now Open</span>
-              </div>
-              <div className="w-px h-4 bg-primary/30"></div>
-              <span className="text-sm text-gray-400">50+ Teams Already Building</span>
-            </div>
 
             {/* Headline */}
             <div className="space-y-6">
@@ -146,6 +178,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/codec-pro');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,7 +61,16 @@
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --radius: 0.75rem;
+    --radius: 1rem;
+  }
+  
+  /* Apply border radius globally */
+  * {
+    border-radius: inherit;
+  }
+  
+  [class*="border"] {
+    border-radius: var(--radius);
   }
 
   .dark {
@@ -112,6 +123,11 @@
     --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5);
     --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.6);
     --shadow-glow: 0 0 40px hsl(64 96% 52% / 0.4);
+  }
+
+  /* Global Font Family */
+  * {
+    font-family: 'Codec Pro', sans-serif;
   }
 
   /* Scroll-triggered fade-in animations */
@@ -170,6 +186,15 @@
     }
   }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   @keyframes glow {
     0%, 100% {
       opacity: 0.5;
@@ -208,6 +233,19 @@
     }
   }
 
+  @keyframes scan {
+    0% {
+      top: 0%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+
+  .animate-scan {
+    animation: scan 3s ease-in-out infinite;
+  }
+
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
   }
@@ -226,6 +264,10 @@
 
   .animate-slide-down {
     animation: slideDown 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
   }
 
   .animate-glow {
