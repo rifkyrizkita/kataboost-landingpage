@@ -35,10 +35,10 @@ const Hero = () => {
           <div className={`absolute inset-0 blur-[120px] bg-primary/10 transition-opacity duration-1000 ${showBoost ? 'opacity-100' : 'opacity-0'}`}></div>
           
           <div className="relative">
-            <img 
-              src="/assets/logo/Kataboost_logo_white_corrected.png" 
-              alt="KataBoost" 
-              className={`w-[600px] md:w-[800px] lg:w-[1000px] h-auto transition-all duration-1000 ${showBoost ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+            <img
+              src="/assets/logo/KataBoost_Logo_White.png"
+              alt="KataBoost"
+              className={`w-[400px] md:w-[500px] lg:w-[600px] h-auto transition-all duration-1000 ${showBoost ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
             />
           </div>
         </div>
@@ -61,18 +61,31 @@ const Hero = () => {
           
           {/* Headline Section */}
           <div className="space-y-8 mb-16 animate-fade-in-up">
-            <div className="inline-block relative">
-              <div className="absolute inset-0 bg-[#def104]/10 blur-xl"></div>
-              <div className="relative px-5 py-2.5 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-2 border-black/10 dark:border-white/10">
-                <span className="text-xs font-black text-black dark:text-white uppercase tracking-[0.3em]">AI-Powered Campaign Builder</span>
+            <div className="flex items-center w-full max-w-5xl">
+              <div className="inline-block relative">
+                <div className="absolute inset-0 bg-[#def104]/10 blur-xl"></div>
+                <div className="relative px-5 py-2.5 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-2 border-black/10 dark:border-white/10">
+                  <span className="text-xs font-black text-black dark:text-white uppercase tracking-[0.3em]">AI-Powered Campaign Builder</span>
+                </div>
               </div>
+              <img 
+                src="/assets/logo/KataBoost_LogoMark_Black.png" 
+                alt="KataBoost" 
+                className="hidden md:block h-16 w-auto dark:hidden rounded-none ml-auto" 
+              />
+              <img 
+                src="/assets/logo/KataBoost_LogoMark_White.png" 
+                alt="KataBoost" 
+                className="hidden md:dark:block h-16 w-auto rounded-none ml-auto" 
+              />
             </div>
             
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-black dark:text-white leading-[0.95] drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_4px_20px_rgba(255,255,255,0.1)]">
-              Launch Winning
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95]">
+              <span className="text-black/40 dark:text-white/40 drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_4px_20px_rgba(255,255,255,0.1)]">Launch Winning</span>
               <br />
-              Ads <span className="relative inline-block">
-                <span className="relative z-10 text-black/40 dark:text-white/70">In 15 Minutes</span>
+              <span className="text-black/40 dark:text-white/40 drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_4px_20px_rgba(255,255,255,0.1)]">Ads </span>
+              <span className="relative inline-block">
+                <span className="relative z-10 text-black dark:text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_4px_20px_rgba(255,255,255,0.1)]">In 15 Minutes</span>
                 <div className="absolute bottom-2 left-0 right-0 h-4 bg-[#def104]/30 shadow-[0_4px_16px_rgba(222,241,4,0.3)]"></div>
               </span>
             </h1>

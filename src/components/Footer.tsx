@@ -6,15 +6,15 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
-            <img 
-              src="/assets/logo/kataboost logo in black.png" 
-              alt="KataBoost" 
-              className="h-12 w-auto mb-4 dark:hidden drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)]"
+            <img
+              src="/assets/logo/KataBoost_Logo_Black2.png"
+              alt="KataBoost"
+              className="h-12 w-auto mb-6 dark:hidden drop-shadow-[0_2px_4px_rgba(0,0,0,0.1)] rounded-none"
             />
-            <img 
-              src="/assets/logo/Kataboost_logo_white_corrected.png" 
-              alt="KataBoost" 
-              className="h-12 w-auto mb-4 hidden dark:block drop-shadow-[0_2px_4px_rgba(255,255,255,0.1)]"
+            <img
+              src="/assets/logo/KataBoost_Logo_White1.png"
+              alt="KataBoost"
+              className="h-12 w-auto mb-6 hidden dark:block drop-shadow-[0_2px_4px_rgba(255,255,255,0.1)] rounded-none"
             />
             <p className="text-black/60 dark:text-white/60 max-w-md leading-relaxed mb-6">
               High-performance campaign planning for Meta and TikTok ads. Built for marketers who value their time.

@@ -4,13 +4,13 @@
 KataBoost is a React + TypeScript landing page for an AI-powered media planning SaaS product (Meta & TikTok ads). Built with Vite, shadcn/ui, and Tailwind CSS. This is a Lovable.dev-managed project with both AI and local development workflows.
 
 ## Tech Stack & Architecture
-- **Framework**: Vite + React 18 + TypeScript + SWC compiler
-- **UI**: shadcn/ui components (Radix UI primitives) + Tailwind CSS + CVA
-- **Routing**: React Router v6 (BrowserRouter) with `<ScrollToTop />` component
-- **State**: React Query (@tanstack/react-query) initialized in `App.tsx`
-- **Styling**: Tailwind with CSS variables + custom animations
-- **Icons**: Lucide React (never use other icon libraries)
-- **Build**: Bun for package management, Docker for deployment
+- **Framework**: Vite 5.4 + React 18 + TypeScript 5.8 + SWC compiler
+- **UI**: shadcn/ui components (Radix UI primitives) + Tailwind CSS 3.4 + CVA
+- **Routing**: React Router v6.30 (BrowserRouter) with `<ScrollToTop />` component
+- **State**: React Query (@tanstack/react-query v5.83) initialized in `App.tsx`
+- **Styling**: Tailwind with CSS variables + custom animations + Motion (Framer Motion v12.23)
+- **Icons**: Lucide React v0.560 (never use other icon libraries - no @tabler/icons-react)
+- **Build**: Bun for package management, npm for scripts, Docker for deployment
 
 ## Key File Locations
 - **App Root**: `src/App.tsx` - Provider setup (QueryClient, Tooltip, Toast) + all routes
@@ -24,9 +24,16 @@ KataBoost is a React + TypeScript landing page for an AI-powered media planning 
 
 ## Design System (Neon Yellow + Dark Theme)
 
+### Typography
+**Custom Font**: Codec Pro (loaded via CDN in `src/index.css`)
+```css
+@import url('https://fonts.cdnfonts.com/css/codec-pro');
+```
+Applied globally with `font-family: 'Codec Pro', sans-serif;` - do not override unless necessary.
+
 ### CSS Variables (`src/index.css` :root)
 **Brand Colors** (HSL format):
-- Primary: `--primary: 64 96% 52%` - **Neon Yellow** (brand color)
+- Primary: `--primary: 64 96% 52%` - **Neon Yellow (#def104)** (brand color)
 - Secondary: `--secondary: 240 3.7% 15.9%` - Dark Gray
 - Accent: `--accent: 142 76% 36%` - Success Green
 - Background: Black (`bg-black`) or dark gradients
@@ -34,6 +41,11 @@ KataBoost is a React + TypeScript landing page for an AI-powered media planning 
 **Custom Gradients** (used frequently):
 - `--gradient-primary`, `--gradient-hero`, `--gradient-card`
 - Apply via Tailwind: `bg-gradient-to-r from-primary/20 to-blue-500/20`
+
+### Brand Assets
+Logo files located in `public/assets/logo/`:
+- `Kataboost_logo_white_corrected.png` - Used in Hero splash screen
+- `kataboost logo in black.png` - Fixed logo (top-left, auto-inverts in dark mode)
 
 ### Component Styling Patterns
 
@@ -70,39 +82,49 @@ const { elementRef, isVisible } = useScrollAnimation();
 ```tsx
 // Section pattern (consistent across all landing sections)
 <section className="py-32 px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black">
-  <div className="max-w-7xl mx-auto">
-    <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 dark:text-white">
-      Title <span className="text-primary">Highlight</span>
-    </h2>
-  </div>
+	<div className="max-w-7xl mx-auto">
+		<h2 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 dark:text-white">
+			Title <span className="text-primary">Highlight</span>
+		</h2>
+	</div>
 </section>
 ```
 
 **6. Theme System (Light + Dark Mode)**
-- Default theme: Dark mode (can be toggled via `<ThemeToggle />` component)
-- Theme state stored in localStorage and synced with `.dark` class on `<html>`
+- Default theme: Dark mode (can be toggled via theme toggle component)
+- Theme state managed by `useTheme` hook in `src/hooks/use-theme.ts`
+- Theme stored in localStorage and synced with `.dark` class on `<html>`
 - Always use dual theme classes: `text-gray-900 dark:text-white`
-- Theme toggle icon in Header (desktop + mobile nav)
+- Two theme toggle components available:
+	- `<AnimatedThemeToggler />` - Animated sun/moon toggle (used in Navigation/Header)
+	- `<ThemeToggle />` - Basic toggle component
 - Light theme: white backgrounds, dark text
 - Dark theme: black/gray-900 backgrounds, white text
 ```tsx
-import { ThemeToggle } from "@/components/ThemeToggle";
-// Add to navigation
-<ThemeToggle />
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+// Used in Navigation dock
+<AnimatedThemeToggler className="p-0 bg-transparent hover:bg-transparent border-0" />
 ```
 
 ## Development Workflow
 
-### Commands (CRITICAL: Use npm, not Bun)
+### Commands (Bun-first workflow)
 ```bash
-npm run dev          # Dev server on http://localhost:8080
-npm run build        # Production build (uses Vite)
-npm run build:dev    # Development mode build
-npm run preview      # Preview production build
-npm run start        # Production server (port 4173, used in Docker)
-npm run lint         # ESLint check
+bun run dev          # Dev server on http://localhost:8080
+bun run build        # Production build (uses Vite)
+bun run build:dev    # Development mode build
+bun run preview      # Preview production build locally (4173 by default)
+bun run start        # Production server (port 4173, used in Docker)
+bun run lint         # ESLint check (ESLint 9 + typescript-eslint 8)
 ```
-**Why npm?** Bun is used for package management (bun.lockb), but scripts run via npm.
+**Important**: Dev server runs on **port 8080** (configured in `vite.config.ts`), not default 5173.
+**Allowed hosts**: Only `kataboost.com` is whitelisted (see `vite.config.ts` server config).
+
+### Package Management
+- Lockfile: `bun.lockb` (Bun's lockfile format)
+- Install packages: Use `bun install` or `bun add <package>`
+- Scripts: Run with `bun run <script>`
+- Avoid mixing with npm/yarn/pnpm to keep lockfile consistent
 
 ### Adding shadcn/ui Components
 ```bash
@@ -110,35 +132,41 @@ npx shadcn@latest add [component-name]
 ```
 - Auto-adds to `src/components/ui/` with path aliases configured
 - DO NOT manually edit shadcn/ui files; regenerate if needed
+- **Custom Registries**: Project configured with additional component sources:
+	- `@react-bits` - https://reactbits.dev/r/{name}.json
+	- `@aceternity` - https://ui.aceternity.com/registry/{name}.json
+- Use: `npx shadcn@latest add @react-bits/[component]` or `npx shadcn@latest add @aceternity/[component]`
 
 ### Docker Deployment
 ```dockerfile
 # Dockerfile uses Bun runtime (FROM oven/bun:1)
-# Runs on port 4173 in production
+# Build process: bun install --frozen-lockfile → bun run build
+# Runs on port 4173 in production (exposes via CMD ["bun", "run", "start"])
 # docker-compose.yml exposes service as "boostkit-landing"
 ```
+**Production workflow**: Build creates static assets in `dist/`, served via Vite's preview server.
 
 ## Component Architecture
 
 ### App.tsx Provider Stack (DO NOT MODIFY ORDER)
 ```tsx
 <QueryClientProvider client={queryClient}>
-  <TooltipProvider>
-    <Toaster /> {/* shadcn/ui toast */}
-    <Sonner />  {/* Sonner toast */}
-    <BrowserRouter>
-      <ScrollToTop /> {/* Auto-scroll to top on route change */}
-      <Routes>...</Routes>
-    </BrowserRouter>
-  </TooltipProvider>
+	<TooltipProvider>
+		<Toaster /> {/* shadcn/ui toast */}
+		<Sonner />  {/* Sonner toast */}
+		<BrowserRouter>
+			<ScrollToTop /> {/* Auto-scroll to top on route change */}
+			<Routes>...</Routes>
+		</BrowserRouter>
+	</TooltipProvider>
 </QueryClientProvider>
 ```
 
 ### Landing Page Structure (`src/pages/Index.tsx`)
 Single-page layout with sections:
 ```tsx
-<Header />       // Fixed nav (glassmorphism)
-<Hero />         // Full-screen gradient hero + CTA
+<Navigation />   // Dock-based bottom nav (desktop + mobile)
+<Hero />         // Full-screen splash + gradient hero + CTA
 <Problem />      // Problem statement
 <Benefits />     // 4-card grid with scroll animations
 <HowItWorks />   // Step-by-step process
@@ -147,16 +175,33 @@ Single-page layout with sections:
 ```
 `<Demo />` and `<Testimonials />` are commented out.
 
+**Navigation Component Details**:
+- Uses `<Dock />` component (macOS-style dock) positioned at bottom center
+- Desktop: Larger icons (iconSize=48, magnification=64)
+- Mobile: Smaller icons (iconSize=36, magnification=44)
+- Includes tooltips on hover showing navigation labels
+- Integrated theme toggle and CTA button within dock
+- Fixed top-left logo overlay (separate from dock)
+
+**Hero Component Details**:
+- **Splash Screen Animation** (2.8s total):
+	1. Shows white logo on black background (200ms delay for "Kata")
+	2. Fades in "Boost" text (900ms delay)
+	3. Fades out entire splash after 2.8s
+	4. Reveals main hero content with fade-in transition
+- Main hero uses floating gradient orbs + grid overlay pattern
+- Tagline highlights "In 15 Minutes" with yellow underline effect
+
 ### Routing Pattern (`src/App.tsx`)
 ```tsx
 <Routes>
-  <Route path="/" element={<Index />} />
-  <Route path="/terms" element={<Terms />} />
-  <Route path="/privacy" element={<Privacy />} />
-  <Route path="/cookies" element={<Cookies />} />
-  <Route path="/contact" element={<Contact />} />
-  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-  <Route path="*" element={<NotFound />} /> {/* Must be last */}
+	<Route path="/" element={<Index />} />
+	<Route path="/terms" element={<Terms />} />
+	<Route path="/privacy" element={<Privacy />} />
+	<Route path="/cookies" element={<Cookies />} />
+	<Route path="/contact" element={<Contact />} />
+	{/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+	<Route path="*" element={<NotFound />} /> {/* Must be last */}
 </Routes>
 ```
 **CRITICAL**: Catch-all route (`*`) must be last or custom routes won't match.
@@ -165,28 +210,28 @@ Single-page layout with sections:
 All landing sections follow this structure:
 ```tsx
 const SectionName = () => {
-  // Optional: useScrollAnimation hook for multiple elements
-  const { elementRef: ref1, isVisible: visible1 } = useScrollAnimation();
+	// Optional: useScrollAnimation hook for multiple elements
+	const { elementRef: ref1, isVisible: visible1 } = useScrollAnimation();
   
-  return (
-    <section id="section-id" className="py-32 px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
-      {/* Grid overlay (common pattern) */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+	return (
+		<section id="section-id" className="py-32 px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+			{/* Grid overlay (common pattern) */}
+			<div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px]"></div>
       
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Badge (common pattern) */}
-        <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-          <span className="text-sm font-bold text-primary uppercase tracking-wide">Label</span>
-        </div>
+			<div className="max-w-7xl mx-auto relative z-10">
+				{/* Badge (common pattern) */}
+				<div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
+					<span className="text-sm font-bold text-primary uppercase tracking-wide">Label</span>
+				</div>
         
-        <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white">
-          Title
-        </h2>
+				<h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white">
+					Title
+				</h2>
         
-        {/* Content grid */}
-      </div>
-    </section>
-  );
+				{/* Content grid */}
+			</div>
+		</section>
+	);
 };
 ```
 
@@ -208,7 +253,7 @@ Define @keyframes and utility classes:
 @keyframes fadeInUp { /* ... */ }
 .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
 ```
-**Available animations**: `fadeInUp`, `fadeInLeft`, `fadeInRight`, `scaleIn`, `slideDown`, `glow`, `float`, `shimmer`, `rotateGradient`
+**Available animations**: `fadeInUp`, `fadeInLeft`, `fadeInRight`, `scaleIn`, `slideDown`, `fadeIn`, `glow`, `float`, `shimmer`, `rotateGradient`, `scan`
 
 ### Scroll-Triggered Animations (`useScrollAnimation` hook)
 ```tsx
@@ -217,8 +262,8 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
 <div 
-  ref={elementRef as any}
-  className={`scroll-animate-fade-up ${isVisible ? 'visible' : ''}`}
+	ref={elementRef as any}
+	className={`scroll-animate-fade-up ${isVisible ? 'visible' : ''}`}
 >
 ```
 Hook uses IntersectionObserver, unobserves after first trigger (performance optimization).
@@ -226,11 +271,11 @@ Hook uses IntersectionObserver, unobserves after first trigger (performance opti
 ### Staggered Delays
 ```tsx
 {items.map((item, index) => (
-  <div 
-    key={index}
-    className={`animate-fade-in-up delay-${(index + 1) * 100}`}
-    style={{ animationDelay: `${index * 0.1}s` }}
-  >
+	<div 
+		key={index}
+		className={`animate-fade-in-up delay-${(index + 1) * 100}`}
+		style={{ animationDelay: `${index * 0.1}s` }}
+	>
 ))}
 ```
 
@@ -238,7 +283,7 @@ Hook uses IntersectionObserver, unobserves after first trigger (performance opti
 **WhatsApp Demo Link** (used in Hero, Header):
 ```tsx
 <a href="https://wa.link/44vmy3" target="_blank" rel="noopener noreferrer">
-  <Button>Request A Demo</Button>
+	<Button>Request A Demo</Button>
 </a>
 ```
 Always use `target="_blank" rel="noopener noreferrer"` for external links.
@@ -254,10 +299,15 @@ Always use `target="_blank" rel="noopener noreferrer"` for external links.
 1. **Package Manager Confusion**: Use **npm** for scripts, not Bun (Bun is for lockfile only)
 2. **Routing**: Catch-all route (`*`) must be **last** in `<Routes>`
 3. **Styling**: Always use `cn()` utility, never string concatenation for classNames
-4. **Icons**: Only use `lucide-react` (e.g., `import { ArrowRight } from "lucide-react"`)
+4. **Icons**: Only use `lucide-react` (e.g., `import { ArrowRight } from "lucide-react"`). **WARNING**: Project has `@tabler/icons-react` in dependencies but should NOT be used
 5. **Animations**: Check `src/index.css` for @keyframes definitions before creating new ones
 6. **Path Aliases**: Use `@/` prefix (e.g., `@/components/Hero`) for src imports
 7. **Button Styling**: Default is `rounded-full`, don't override unless necessary
 8. **Theme Support**: Site supports both light and dark modes via `<ThemeToggle />` component - always use dual classes (`text-gray-900 dark:text-white`)
 9. **Dev Server**: Runs on port **8080** (not 5173, see `vite.config.ts`)
 10. **shadcn/ui**: Never manually edit `src/components/ui/*` files; regenerate with CLI
+11. **Hook Usage**: `useScrollAnimation` hook only triggers once per element (performance optimization via `observer.unobserve`)
+12. **TypeScript Refs**: When using refs with `useScrollAnimation`, cast as `any`: `ref={elementRef as any}`
+13. **Lovable Integration**: Don't remove `lovable-tagger` from `vite.config.ts` - it's essential for platform sync
+11. **Hook Usage**: `useScrollAnimation` hook only triggers once per element (performance optimization via `observer.unobserve`)
+12. **TypeScript Refs**: When using refs with `useScrollAnimation`, cast as `any`: `ref={elementRef as any}`

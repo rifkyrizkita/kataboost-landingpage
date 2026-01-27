@@ -19,10 +19,15 @@ const Header = () => {
     <>
       {/* Logo Fixed Top Left */}
       <div className="fixed top-6 left-6 lg:left-8 z-50">
-        <img 
-          src="/assets/logo/kataboost logo in black.png" 
-          alt="KataBoost" 
-          className="h-10 w-auto dark:invert transition-all"
+        <img
+          src="/assets/logo/KataBoost_Logo_Black.png"
+          alt="KataBoost"
+          className="h-16 w-auto dark:hidden transition-all"
+        />
+        <img
+          src="/assets/logo/KataBoost_Logo_White.png"
+          alt="KataBoost"
+          className="h-16 w-auto hidden dark:block transition-all"
         />
       </div>
 
