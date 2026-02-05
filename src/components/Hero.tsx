@@ -31,8 +31,8 @@ const Hero = () => {
         className={`fixed inset-0 z-[99999] bg-black flex items-center justify-center transition-all duration-700 ${showSplash ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
       >
         <div className="relative">
-          {/* Background glow */}
-          <div className={`absolute inset-0 blur-[120px] bg-primary/10 transition-opacity duration-1000 ${showBoost ? 'opacity-100' : 'opacity-0'}`}></div>
+          {/* Background glow - commented out for potential future use */}
+          {/* <div className={`absolute inset-0 blur-[120px] bg-primary/10 transition-opacity duration-1000 ${showBoost ? 'opacity-100' : 'opacity-0'}`}></div> */}
           
           <div className="relative">
             <img
@@ -61,23 +61,28 @@ const Hero = () => {
           
           {/* Headline Section */}
           <div className="space-y-8 mb-16 animate-fade-in-up">
-            <div className="flex items-center w-full max-w-5xl">
+            {/* Logo above */}
+            <div className="flex w-full max-w-5xl mb-4">
+              <img 
+                src="/assets/logo/KataBoost_Logo_Black2.png" 
+                alt="KataBoost" 
+                className="block dark:hidden h-14 w-auto" 
+              />
+              <img 
+                src="/assets/logo/KataBoost_Logo_White1.png" 
+                alt="KataBoost" 
+                className="hidden dark:block h-14 w-auto" 
+              />
+            </div>
+            
+            <div className="flex items-center gap-3 w-full max-w-5xl">
+              {/* Title */}
               <div className="inline-block relative">
                 <div className="absolute inset-0 bg-[#def104]/10 blur-xl"></div>
                 <div className="relative px-5 py-2.5 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-2 border-black/10 dark:border-white/10">
                   <span className="text-xs font-black text-black dark:text-white uppercase tracking-[0.3em]">AI-Powered Campaign Builder</span>
                 </div>
               </div>
-              <img 
-                src="/assets/logo/KataBoost_LogoMark_Black.png" 
-                alt="KataBoost" 
-                className="hidden md:block h-16 w-auto dark:hidden rounded-none ml-auto" 
-              />
-              <img 
-                src="/assets/logo/KataBoost_LogoMark_White.png" 
-                alt="KataBoost" 
-                className="hidden md:dark:block h-16 w-auto rounded-none ml-auto" 
-              />
             </div>
             
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95]">
