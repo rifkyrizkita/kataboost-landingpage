@@ -38,7 +38,7 @@ const Hero = () => {
             <img
               src="/assets/logo/KataBoost_Logo_White.png"
               alt="KataBoost"
-              className={`w-[400px] md:w-[500px] lg:w-[600px] h-auto transition-all duration-1000 ${showBoost ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+              className={`w-[400px] h-auto transition-all duration-1000 ${showBoost ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
             />
           </div>
         </div>
